@@ -1,5 +1,7 @@
 // Sem pacote - classe no diretório raiz
 
+import org.w3c.dom.ls.LSOutput;
+
 import java.util.Arrays;
 
 public class App {
@@ -277,5 +279,32 @@ public class App {
     System.out.println("Original array: "+ Arrays.toString(arr));
     reverse(arr);
 
+    // Reverse the array
+    System.out.println();
+    System.out.println("Implementing a custom array list");
+    CustomArrayList<Integer> customArrayList = new CustomArrayList<>();
+    System.out.println("Of ints");
+    System.out.println("Size: "+customArrayList.size());
+
+
+    customArrayList.add(1);
+    System.out.println("added 1");
+    System.out.println("get index zero: "+customArrayList.get(0));
+    System.out.println("Size: "+customArrayList.size());
+    customArrayList.add(2);
+    System.out.println("added 2");
+    System.out.println("get index one: "+customArrayList.get(1));
+
+    System.out.println("String");
+    CustomArrayList<String> customArrayListOfStrings = new CustomArrayList<>();
+    System.out.println("Size: "+customArrayListOfStrings.size());
+
+    customArrayListOfStrings.add("Hello world!");
+    System.out.println("added hello");
+    System.out.println("get index zero: "+customArrayListOfStrings.get(0));
+    System.out.println("Size: "+customArrayListOfStrings.size());
+    System.out.println("added good bye");
+    customArrayListOfStrings.add("Good bye world!");
+    System.out.println("get index one: "+customArrayListOfStrings.get(1));
   }
 }
