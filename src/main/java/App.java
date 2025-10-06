@@ -4,6 +4,16 @@ import java.util.Arrays;
 
 public class App {
 
+  public static void rightTriangleOfAnArray(Object[] array) {
+    for (int row = 0; row < array.length; row++) {
+      for (int col = 0; col <= row; col++) {
+        System.out.print(array[col]);
+      }
+      System.out.println();
+    }
+    System.out.println();
+  }
+
   /**
    * Find the second smallest number in an array
    * 
@@ -59,6 +69,7 @@ public class App {
 
   public static void main(String[] args) {
     double[] lotteryNums = { 99, 10, 98, 10, 15, 15, 48, 54, 77 }; // new double[n elements];
+    Integer[] array = { 1, 2, 3, 4, 5 };
     // System.out.println(lotteryNums[2]);
     lotteryNums[2] = 49;
     // System.out.println(lotteryNums[4]);
@@ -97,5 +108,9 @@ public class App {
     System.out.println("Print the second smallest number of the array");
     System.out.println(findSecondSmallest(lotteryNums));
 
+    // Print a right triangle of an array
+    System.out.println();
+    System.out.println("Print a right triangle of an array");
+    rightTriangleOfAnArray(array);
   }
 }

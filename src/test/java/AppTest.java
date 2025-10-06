@@ -15,6 +15,148 @@ import static org.junit.jupiter.api.Assertions.*;
 public class AppTest {
 
   @Nested
+  @DisplayName("Testes para rightTriangleOfAnArray")
+  class RightTriangleOfAnArrayTests {
+
+    @Test
+    @DisplayName("Deve imprimir triângulo com array de inteiros")
+    void testRightTriangleOfAnArray_IntegerArray() {
+      // Arrange
+      Integer[] array = { 1, 2, 3, 4 };
+
+      // Act & Assert - Como a função imprime, vamos testar se não lança exceção
+      assertDoesNotThrow(() -> App.rightTriangleOfAnArray(array),
+          "Deve imprimir triângulo sem lançar exceção");
+    }
+
+    @Test
+    @DisplayName("Deve imprimir triângulo com array de caracteres")
+    void testRightTriangleOfAnArray_CharacterArray() {
+      // Arrange
+      Character[] array = { 'A', 'B', 'C', 'D', 'E' };
+
+      // Act & Assert
+      assertDoesNotThrow(() -> App.rightTriangleOfAnArray(array),
+          "Deve imprimir triângulo de caracteres sem lançar exceção");
+    }
+
+    @Test
+    @DisplayName("Deve imprimir triângulo com array de strings")
+    void testRightTriangleOfAnArray_StringArray() {
+      // Arrange
+      String[] array = { "Hello", "There", "Friend" };
+
+      // Act & Assert
+      assertDoesNotThrow(() -> App.rightTriangleOfAnArray(array),
+          "Deve imprimir triângulo de strings sem lançar exceção");
+    }
+
+    @Test
+    @DisplayName("Deve lidar com array vazio")
+    void testRightTriangleOfAnArray_EmptyArray() {
+      // Arrange
+      String[] array = {};
+
+      // Act & Assert
+      assertDoesNotThrow(() -> App.rightTriangleOfAnArray(array),
+          "Deve lidar com array vazio sem lançar exceção");
+    }
+
+    @Test
+    @DisplayName("Deve lidar com array de um elemento")
+    void testRightTriangleOfAnArray_SingleElement() {
+      // Arrange
+      String[] array = { "Hello" };
+
+      // Act & Assert
+      assertDoesNotThrow(() -> App.rightTriangleOfAnArray(array),
+          "Deve lidar com array de um elemento sem lançar exceção");
+    }
+
+    @Test
+    @DisplayName("Deve lidar com array de dois elementos")
+    void testRightTriangleOfAnArray_TwoElements() {
+      // Arrange
+      Integer[] array = { 10, 20 };
+
+      // Act & Assert
+      assertDoesNotThrow(() -> App.rightTriangleOfAnArray(array),
+          "Deve lidar com array de dois elementos sem lançar exceção");
+    }
+
+    @Test
+    @DisplayName("Deve lidar com array de números decimais")
+    void testRightTriangleOfAnArray_DecimalNumbers() {
+      // Arrange
+      Double[] array = { 1.5, 2.3, 3.7 };
+
+      // Act & Assert
+      assertDoesNotThrow(() -> App.rightTriangleOfAnArray(array),
+          "Deve lidar com array de números decimais sem lançar exceção");
+    }
+
+    @Test
+    @DisplayName("Deve lidar com array de booleanos")
+    void testRightTriangleOfAnArray_BooleanArray() {
+      // Arrange
+      Boolean[] array = { true, false, true, false };
+
+      // Act & Assert
+      assertDoesNotThrow(() -> App.rightTriangleOfAnArray(array),
+          "Deve lidar com array de booleanos sem lançar exceção");
+    }
+
+    @Test
+    @DisplayName("Deve lidar com array de objetos mistos")
+    void testRightTriangleOfAnArray_MixedObjects() {
+      // Arrange
+      Object[] array = { "String", 123, 'C', true };
+
+      // Act & Assert
+      assertDoesNotThrow(() -> App.rightTriangleOfAnArray(array),
+          "Deve lidar com array de objetos mistos sem lançar exceção");
+    }
+
+    @Test
+    @DisplayName("Deve lidar com array grande")
+    void testRightTriangleOfAnArray_LargeArray() {
+      // Arrange
+      Integer[] array = new Integer[100];
+      for (int i = 0; i < 100; i++) {
+        array[i] = i + 1;
+      }
+
+      // Act & Assert
+      assertDoesNotThrow(() -> App.rightTriangleOfAnArray(array),
+          "Deve lidar com array grande sem lançar exceção");
+    }
+
+    @Test
+    @DisplayName("Deve lidar com array contendo null")
+    void testRightTriangleOfAnArray_ArrayWithNull() {
+      // Arrange
+      String[] array = { "Hello", null, "World" };
+
+      // Act & Assert
+      assertDoesNotThrow(() -> App.rightTriangleOfAnArray(array),
+          "Deve lidar com array contendo null sem lançar exceção");
+    }
+
+    @Test
+    @DisplayName("Deve lidar com array de arrays")
+    void testRightTriangleOfAnArray_ArrayOfArrays() {
+      // Arrange
+      int[][] innerArray1 = { { 1, 2 }, { 3, 4 } };
+      int[][] innerArray2 = { { 5, 6 }, { 7, 8 } };
+      Object[] array = { innerArray1, innerArray2 };
+
+      // Act & Assert
+      assertDoesNotThrow(() -> App.rightTriangleOfAnArray(array),
+          "Deve lidar com array de arrays sem lançar exceção");
+    }
+  }
+
+  @Nested
   @DisplayName("Testes para findSecondSmallest - Implementação Eficiente")
   class FindSecondSmallestTests {
 

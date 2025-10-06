@@ -9,8 +9,12 @@ This course is integrated with GitHub Codespaces, an instant cloud developer env
 
 
 
-## Instructions
-This repository has branches for each of the videos in the course. You can use the branch pop up menu in github to switch to a specific branch and take a look at the course at that stage, or you can add `/tree/BRANCH_NAME` to the URL to go to the branch you want to access.
+## Exercises
+
+- Find the second smaller number of an array.
+- Create a program that displays a right triangle with the contents in an object array
+  - If the array contains 1 item, just 1 item should be printed
+  - if the array is empty nothing should be printed
 
 ## Branches
 The branches are structured to correspond to the videos in the course. The naming convention is `CHAPTER#_MOVIE#`. As an example, the branch named `02_03` corresponds to the second chapter and the third video in that chapter. 
@@ -30,13 +34,7 @@ To resolve this issue:
 
 ### Instructor
 
-Kathryn Hodge 
-                            
+Kathryn Hodge  
 Software Engineer
 
-                            
-
-Check out my other courses on [LinkedIn Learning](https://www.linkedin.com/learning/instructors/kathryn-hodge).
-
-[lil-course-url]: https://www.linkedin.com/learning/practice-it-java-arrays?dApp=59033956
-[lil-thumbnail-url]: https://media.licdn.com/dms/image/C560DAQGxvknrUSCYyg/learning-public-crop_675_1200/0/1674065752872?e=2147483647&v=beta&t=alZ8uNljq1YU5rek0_VhuddFylQVKNSJVdDc7lQAa1k
+### 
