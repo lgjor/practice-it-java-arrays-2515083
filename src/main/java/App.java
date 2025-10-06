@@ -4,6 +4,61 @@ import java.util.Arrays;
 
 public class App {
 
+  /**
+   * Rotate an array to the right
+   * 
+   * @param array Object[]
+   * @return array Object[] rotated
+   */
+  public static Object[] rotateArray(Object[] array) {
+    if (array == null || array.length == 0) {
+      return array;
+    }
+    Object[] result = new Object[array.length];
+
+    for (int i = 0; i < array.length; i++) {
+      result[(i + 1) % result.length] = array[i];
+    }
+    return result;
+  }
+
+  /**
+   * Rotate an array to the right steps times
+   * 
+   * @param array Object[]
+   * @param steps int
+   * @return array Object[] rotated
+   */
+  public static Object[] rotateArray(Object[] array, int steps) {
+    if (array == null || array.length == 0) {
+      return array;
+    }
+
+    // Normalizar steps para evitar rotações desnecessárias
+    steps = steps % array.length;
+    if (steps < 0) {
+      steps += array.length;
+    }
+
+    if (steps == 0) { // Sem rotação
+      return array.clone(); // Retorna uma cópia do array original
+    }
+
+    Object[] result = new Object[array.length];
+
+    // Com rotação
+    for (int i = 0; i < array.length; i++) {
+      result[(i + steps) % array.length] = array[i];
+    }
+
+    return result;
+  }
+
+  /**
+   * Print a right triangle of an array
+   *
+   * @param array
+   */
   public static void rightTriangleOfAnArray(Object[] array) {
     for (int row = 0; row < array.length; row++) {
       for (int col = 0; col <= row; col++) {
@@ -70,6 +125,7 @@ public class App {
   public static void main(String[] args) {
     double[] lotteryNums = { 99, 10, 98, 10, 15, 15, 48, 54, 77 }; // new double[n elements];
     Integer[] array = { 1, 2, 3, 4, 5 };
+    Object[] arrayReferenceType = { 1, 2, 3, 4, 5 };
     // System.out.println(lotteryNums[2]);
     lotteryNums[2] = 49;
     // System.out.println(lotteryNums[4]);
@@ -112,5 +168,33 @@ public class App {
     System.out.println();
     System.out.println("Print a right triangle of an array");
     rightTriangleOfAnArray(array);
+
+    // Rotate an array to the right
+    System.out.println();
+    System.out.println("Rotate an array to the right");
+
+    arrayReferenceType = rotateArray(arrayReferenceType, 1);
+    System.out.println("Rotate an array to the right: " + Arrays.toString(arrayReferenceType));
+
+    arrayReferenceType = rotateArray(arrayReferenceType, 1);
+    System.out.println("Rotate an array to the right: " + Arrays.toString(arrayReferenceType));
+
+    arrayReferenceType = rotateArray(arrayReferenceType, 1);
+    System.out.println("Rotate an array to the right: " + Arrays.toString(arrayReferenceType));
+
+    // Rotate an array to the right improved version
+    System.out.println();
+    System.out.println("Rotate an array to the right improved version");
+    arrayReferenceType = rotateArray(arrayReferenceType);
+    System.out.println("Rotate an array to the right: " + Arrays.toString(arrayReferenceType));
+
+    arrayReferenceType = rotateArray(arrayReferenceType);
+    System.out.println("Rotate an array to the right: " + Arrays.toString(arrayReferenceType));
+
+    arrayReferenceType = rotateArray(arrayReferenceType);
+    System.out.println("Rotate an array to the right: " + Arrays.toString(arrayReferenceType));
+
+    arrayReferenceType = rotateArray(arrayReferenceType);
+    System.out.println("Rotate an array to the right: " + Arrays.toString(arrayReferenceType));
   }
 }

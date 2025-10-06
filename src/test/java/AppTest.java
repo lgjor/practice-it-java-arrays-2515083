@@ -411,6 +411,295 @@ public class AppTest {
   }
 
   @Nested
+  @DisplayName("Testes para rotateArray - Versão Melhorada (um parâmetro)")
+  class RotateArraySingleParamTests {
+
+    @Test
+    @DisplayName("Deve rotacionar array de inteiros uma posição para a direita")
+    void testRotateArray_IntegerArray() {
+      // Arrange
+      Object[] array = { 1, 2, 3, 4, 5 };
+      Object[] expected = { 5, 1, 2, 3, 4 };
+
+      // Act
+      Object[] result = App.rotateArray(array);
+
+      // Assert
+      assertArrayEquals(expected, result, "Array deve ser rotacionado uma posição para a direita");
+    }
+
+    @Test
+    @DisplayName("Deve rotacionar array de strings uma posição para a direita")
+    void testRotateArray_StringArray() {
+      // Arrange
+      Object[] array = { "A", "B", "C", "D" };
+      Object[] expected = { "D", "A", "B", "C" };
+
+      // Act
+      Object[] result = App.rotateArray(array);
+
+      // Assert
+      assertArrayEquals(expected, result, "Array de strings deve ser rotacionado corretamente");
+    }
+
+    @Test
+    @DisplayName("Deve retornar null para array null")
+    void testRotateArray_NullArray() {
+      // Arrange
+      Object[] array = null;
+
+      // Act
+      Object[] result = App.rotateArray(array);
+
+      // Assert
+      assertNull(result, "Array null deve retornar null");
+    }
+
+    @Test
+    @DisplayName("Deve retornar array vazio para array vazio")
+    void testRotateArray_EmptyArray() {
+      // Arrange
+      Object[] array = {};
+      Object[] expected = {};
+
+      // Act
+      Object[] result = App.rotateArray(array);
+
+      // Assert
+      assertArrayEquals(expected, result, "Array vazio deve retornar array vazio");
+    }
+
+    @Test
+    @DisplayName("Deve retornar o mesmo array para array com um elemento")
+    void testRotateArray_SingleElement() {
+      // Arrange
+      Object[] array = { 42 };
+      Object[] expected = { 42 };
+
+      // Act
+      Object[] result = App.rotateArray(array);
+
+      // Assert
+      assertArrayEquals(expected, result, "Array com um elemento deve retornar o mesmo array");
+    }
+
+    @Test
+    @DisplayName("Deve rotacionar array de caracteres")
+    void testRotateArray_CharacterArray() {
+      // Arrange
+      Object[] array = { 'a', 'b', 'c', 'd', 'e' };
+      Object[] expected = { 'e', 'a', 'b', 'c', 'd' };
+
+      // Act
+      Object[] result = App.rotateArray(array);
+
+      // Assert
+      assertArrayEquals(expected, result, "Array de caracteres deve ser rotacionado corretamente");
+    }
+
+    @Test
+    @DisplayName("Deve rotacionar array de booleanos")
+    void testRotateArray_BooleanArray() {
+      // Arrange
+      Object[] array = { true, false, true, false };
+      Object[] expected = { false, true, false, true };
+
+      // Act
+      Object[] result = App.rotateArray(array);
+
+      // Assert
+      assertArrayEquals(expected, result, "Array de booleanos deve ser rotacionado corretamente");
+    }
+
+    @Test
+    @DisplayName("Deve rotacionar array de objetos mistos")
+    void testRotateArray_MixedObjects() {
+      // Arrange
+      Object[] array = { "Hello", 123, 'C', true };
+      Object[] expected = { true, "Hello", 123, 'C' };
+
+      // Act
+      Object[] result = App.rotateArray(array);
+
+      // Assert
+      assertArrayEquals(expected, result, "Array de objetos mistos deve ser rotacionado corretamente");
+    }
+
+    @Test
+    @DisplayName("Deve rotacionar array com elementos null")
+    void testRotateArray_ArrayWithNull() {
+      // Arrange
+      Object[] array = { "A", null, "C", "D" };
+      Object[] expected = { "D", "A", null, "C" };
+
+      // Act
+      Object[] result = App.rotateArray(array);
+
+      // Assert
+      assertArrayEquals(expected, result, "Array com null deve ser rotacionado corretamente");
+    }
+  }
+
+  @Nested
+  @DisplayName("Testes para rotateArray - Versão com Passos (dois parâmetros)")
+  class RotateArrayTwoParamsTests {
+
+    @Test
+    @DisplayName("Deve rotacionar array 1 posição para a direita")
+    void testRotateArray_OneStep() {
+      // Arrange
+      Object[] array = { 1, 2, 3, 4, 5 };
+      Object[] expected = { 5, 1, 2, 3, 4 };
+
+      // Act
+      Object[] result = App.rotateArray(array, 1);
+
+      // Assert
+      assertArrayEquals(expected, result, "Array deve ser rotacionado 1 posição para a direita");
+    }
+
+    @Test
+    @DisplayName("Deve rotacionar array 2 posições para a direita")
+    void testRotateArray_TwoSteps() {
+      // Arrange
+      Object[] array = { 1, 2, 3, 4, 5 };
+      Object[] expected = { 4, 5, 1, 2, 3 };
+
+      // Act
+      Object[] result = App.rotateArray(array, 2);
+
+      // Assert
+      assertArrayEquals(expected, result, "Array deve ser rotacionado 2 posições para a direita");
+    }
+
+    @Test
+    @DisplayName("Deve rotacionar array 3 posições para a direita")
+    void testRotateArray_ThreeSteps() {
+      // Arrange
+      Object[] array = { 1, 2, 3, 4, 5 };
+      Object[] expected = { 3, 4, 5, 1, 2 };
+
+      // Act
+      Object[] result = App.rotateArray(array, 3);
+
+      // Assert
+      assertArrayEquals(expected, result, "Array deve ser rotacionado 3 posições para a direita");
+    }
+
+    @Test
+    @DisplayName("Deve retornar array original quando steps = 0")
+    void testRotateArray_ZeroSteps() {
+      // Arrange
+      Object[] array = { 1, 2, 3, 4, 5 };
+      Object[] expected = { 1, 2, 3, 4, 5 };
+
+      // Act
+      Object[] result = App.rotateArray(array, 0);
+
+      // Assert
+      assertArrayEquals(expected, result, "Array deve permanecer inalterado quando steps = 0");
+    }
+
+    @Test
+    @DisplayName("Deve rotacionar array completo (steps = length)")
+    void testRotateArray_FullRotation() {
+      // Arrange
+      Object[] array = { 1, 2, 3, 4, 5 };
+      Object[] expected = { 1, 2, 3, 4, 5 };
+
+      // Act
+      Object[] result = App.rotateArray(array, 5);
+
+      // Assert
+      assertArrayEquals(expected, result, "Array deve retornar ao estado original após rotação completa");
+    }
+
+    @Test
+    @DisplayName("Deve rotacionar array com steps maior que o tamanho")
+    void testRotateArray_StepsLargerThanLength() {
+      // Arrange
+      Object[] array = { 1, 2, 3, 4, 5 };
+      Object[] expected = { 1, 2, 3, 4, 5 };
+
+      // Act
+      Object[] result = App.rotateArray(array, 10);
+
+      // Assert
+      assertArrayEquals(expected, result, "Array deve retornar ao estado original após múltiplas rotações completas");
+    }
+
+    @Test
+    @DisplayName("Deve rotacionar array de strings com múltiplos passos")
+    void testRotateArray_StringArrayMultipleSteps() {
+      // Arrange
+      Object[] array = { "A", "B", "C", "D", "E" };
+      Object[] expected = { "C", "D", "E", "A", "B" };
+
+      // Act
+      Object[] result = App.rotateArray(array, 3);
+
+      // Assert
+      assertArrayEquals(expected, result, "Array de strings deve ser rotacionado corretamente");
+    }
+
+    @Test
+    @DisplayName("Deve rotacionar array de um elemento")
+    void testRotateArray_SingleElement() {
+      // Arrange
+      Object[] array = { 42 };
+      Object[] expected = { 42 };
+
+      // Act
+      Object[] result = App.rotateArray(array, 1);
+
+      // Assert
+      assertArrayEquals(expected, result, "Array com um elemento deve retornar o mesmo array");
+    }
+
+    @Test
+    @DisplayName("Deve rotacionar array de dois elementos")
+    void testRotateArray_TwoElements() {
+      // Arrange
+      Object[] array = { 10, 20 };
+      Object[] expected = { 20, 10 };
+
+      // Act
+      Object[] result = App.rotateArray(array, 1);
+
+      // Assert
+      assertArrayEquals(expected, result, "Array de dois elementos deve ser rotacionado corretamente");
+    }
+
+    @Test
+    @DisplayName("Deve rotacionar array com elementos duplicados")
+    void testRotateArray_DuplicateElements() {
+      // Arrange
+      Object[] array = { 1, 1, 2, 2, 3 };
+      Object[] expected = { 3, 1, 1, 2, 2 };
+
+      // Act
+      Object[] result = App.rotateArray(array, 1);
+
+      // Assert
+      assertArrayEquals(expected, result, "Array com elementos duplicados deve ser rotacionado corretamente");
+    }
+
+    @Test
+    @DisplayName("Deve rotacionar array com elementos null")
+    void testRotateArray_ArrayWithNull() {
+      // Arrange
+      Object[] array = { "A", null, "C", "D" };
+      Object[] expected = { "D", "A", null, "C" };
+
+      // Act
+      Object[] result = App.rotateArray(array, 1);
+
+      // Assert
+      assertArrayEquals(expected, result, "Array com null deve ser rotacionado corretamente");
+    }
+  }
+
+  @Nested
   @DisplayName("Testes de Comparação entre as Implementações")
   class ComparisonTests {
 
@@ -441,6 +730,20 @@ public class AppTest {
       // Assert
       assertNull(result1, "findSecondSmallest deve retornar null");
       assertNull(result2, "findSecondSmallest2 deve retornar null");
+    }
+
+    @Test
+    @DisplayName("Ambas versões de rotateArray devem retornar o mesmo resultado para 1 passo")
+    void testBothRotateArrayImplementationsReturnSameResult() {
+      // Arrange
+      Object[] array = { 1, 2, 3, 4, 5 };
+
+      // Act
+      Object[] result1 = App.rotateArray(array);
+      Object[] result2 = App.rotateArray(array, 1);
+
+      // Assert
+      assertArrayEquals(result1, result2, "Ambas versões de rotateArray devem retornar o mesmo resultado para 1 passo");
     }
   }
 }
