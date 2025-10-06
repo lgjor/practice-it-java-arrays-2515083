@@ -16,7 +16,8 @@ This course is integrated with GitHub Codespaces, an instant cloud developer env
   - If the array contains 1 item, just 1 item should be printed
   - if the array is empty nothing should be printed
 - Rotate and array to the right, returning a new array. Input: {1, 2, 3, 4, 5}, Output: {5, 1, 2, 3, 4} 
-- 
+- Move all the zeros to the end of the array. Return void. 
+- Reverse an array in place. Input: {1,2,3,4,5}. Output: {5, 4, 3, 2, 1} (same array)
 
 ## Branches
 The branches are structured to correspond to the videos in the course. The naming convention is `CHAPTER#_MOVIE#`. As an example, the branch named `02_03` corresponds to the second chapter and the third video in that chapter. 

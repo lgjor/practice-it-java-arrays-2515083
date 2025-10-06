@@ -4,6 +4,68 @@ import java.util.Arrays;
 
 public class App {
 
+
+  /**
+  * Reverse an array in place
+  *
+  */
+  public static void reverse(int[] arr){
+    if (arr.length<=1){
+      System.out.println(arr);
+      return;
+    }
+    int firstPartLength = arr.length/2;
+    for (int i=0; i<firstPartLength; i++){
+      int temp = arr[i];
+      arr[i] = arr[arr.length-1-i];
+      arr[arr.length-1-i]=temp;
+    }
+    System.out.println(Arrays.toString(arr));
+  }
+
+  /**
+  * Move all the zeros to the end of the array improved version
+  *
+  */
+  public static void moveZerosToTheEndImproved(int[] arr){
+      int count = 0;
+      if (arr.length != 0) {
+        for (int i=0; i<arr.length; i++){
+            if (arr[i]!=0) {
+              arr[count] = arr[i];
+              count++;
+            }
+        }
+        while (count <arr.length){
+          arr[count]=0;
+          count++;
+        }
+      }
+    System.out.println("Modified array: " + Arrays.toString(arr));
+  }
+
+
+  /**
+  * Move all the zeros to the end of the array
+  *
+  */
+  public static void moveZerosToTheEnd(int[] arr){
+    if (arr.length != 0) {
+      for (int i=0; i<arr.length; i++){
+        if (arr[i]==0){
+          for (int j=i; j<arr.length; j++){
+            if (arr[j]!=0){
+              int temp = arr[i];
+              arr[i] = arr[j];
+              arr[j] = temp;
+              break;
+            }
+          }
+        }
+      }
+      System.out.println("Modified array: " + Arrays.toString(arr));
+    }
+  }
   /**
    * Rotate an array to the right
    * 
@@ -126,6 +188,8 @@ public class App {
     double[] lotteryNums = { 99, 10, 98, 10, 15, 15, 48, 54, 77 }; // new double[n elements];
     Integer[] array = { 1, 2, 3, 4, 5 };
     Object[] arrayReferenceType = { 1, 2, 3, 4, 5 };
+    int[] arr = {1, 2, 9, 8, 4};
+    int[] arr2 = {1, 2, 0, 0, 1, 0};
     // System.out.println(lotteryNums[2]);
     lotteryNums[2] = 49;
     // System.out.println(lotteryNums[4]);
@@ -196,5 +260,22 @@ public class App {
 
     arrayReferenceType = rotateArray(arrayReferenceType);
     System.out.println("Rotate an array to the right: " + Arrays.toString(arrayReferenceType));
+
+    // Move Zeros To The End
+    System.out.println("Move Zeros To The End");
+    System.out.println("Original array: "+ Arrays.toString(arr));
+    moveZerosToTheEnd(arr);
+
+    // Move Zeros To The End
+    System.out.println("Move Zeros To The End");
+    System.out.println("Original array: "+ Arrays.toString(arr2));
+    moveZerosToTheEndImproved(arr2);
+
+    // Reverse the array
+    System.out.println();
+    System.out.println("Reverse the array");
+    System.out.println("Original array: "+ Arrays.toString(arr));
+    reverse(arr);
+
   }
 }
